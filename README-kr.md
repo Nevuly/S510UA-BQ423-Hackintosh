@@ -35,19 +35,18 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 
 ## Steps to install
 
-1. macOS 인스톨러 USB를 준비합니다. (creationmedia 방법이나 Mojave와 Catalina를 HFS+ 파일시스템에 설치하고 싶다면 [MBR HFS Firmware Check Patch](https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/)를 사용하십시오.) 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [x86.co.kr](https://x86.co.kr)에서 고스트를 받아 설치하시면 편리합니다.
+1. macOS 인스톨러 USB를 준비합니다. (creationmedia 방법이나 Catalina를 HFS+ 파일시스템에 설치하고 싶다면 [MBR HFS Firmware Check Patch](https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/)를 사용하십시오.) 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [x86.co.kr](https://x86.co.kr)에서 고스트를 받아 설치하시면 편리합니다.
 2. USB의 EFI 파티션에 Clover EFI의 하위폴더 EFI를 붙여넣으십시오.
 3. USB로 부팅해서 macOS Installer를 선택하십시오.
 4. 설치중에는 터치패드가 작동하지 않을 수 있습니다. 이 경우 별도의 마우스가 필요합니다. (또는 VoodooI2CHID.kext의 info.plist에서 IOGraphicsFamily에 대한 dependency를 삭제하십시오.) tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [x86.co.kr](https://x86.co.kr)를 이용하십시오.
     - 만약 카탈리나를 HFS+ 파일시스템으로 설치하신다면 [이곳](https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/)의 설치방법을 참고하십시오.
 5. 설치가 완료된 후에 macOS로 부팅해서 /kexts/Other의 켁스트를 -> /Library/Extension로 붙여넣으십시오.
-6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
+6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E* && sudo chown -R 0:0 /L*/E* && sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
     - 카탈리나를 설치했다면 [Hackintool](https://headsoft.com.au/download/mac/Hackintool.zip)로 먼저 Gate Keeper를 비활성화 시킨 후 진행하십시오.
-7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
-8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro14,1의 SMBIOS 내용을 생성하십시오.
+7. 터치패드와 소리가 (마이크) 정상 작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
+8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro15,4의 SMBIOS 내용을 생성하십시오.
 - Note: 경우에 따라서 별도의 패치가 필요할 수 있습니다.
     - DW1560를 설치한 경우 -- Replace WiFi/Bluetooth Card
-    - DW1560설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
     - WiFi & BT 모듈을 DW1560로 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan's Null Ethernet
     - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Activate Sleep and Airplane fn keys
 
@@ -58,14 +57,6 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 3. /kexts/other/additional에 있는 AirportBrcmFixup과 세 개의 Brcm kext들 (Repo, Injector, RAM3) 을 /L*/E*로 복사하고 캐시를 재생성하십시오.
 4. 권장사항: /kexts/other/additional/LiluFriend.kext를 (새롭게 LiluFriend를 생성하는 것이 안정적입니다.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
 5. 재부팅합니다.
-
-## Set Bluetooth port as internal
-
-1. /L*/E*의 3rd party USB 관련 켁스트나 SSDT-UIA.aml가 로드되지 않은 것을 확인하십시오.
-2. headkaze의 [Hackintool](https://headsoft.com.au/download/mac/Hackintool.zip)를 다운로드 하십시오.
-3. USB 탭에서 블루투스 포트를 확인하고 internal로 설정하십시오. UVC 카메라 또한 internal로 설정할 수 있습니다. Export/내보내기 버튼으로 codeless injection kext과 SSDT들을 데스크톱에 생성하고, 생성된 SSDT들은 삭제하십시오.
-4. USBPorts.kext를 /L*/E*에 설치하십시오. (자세한 내용은 [여기서](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) 확인하실 수 있습니다.)
-5. 캐시를 재생성하고 재부팅합니다.
 
 ## Install RehabMan's Null Ethernet
 
@@ -87,9 +78,15 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 2. /L*/E*의 내용을 SSD의 EFI 파티션과 설치 USB EFI 파티션에 복사하십시오.
 
 ## Other things
-1. 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
+1. 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
+2. 켁스트를 로드하고 나서 블루투스가 작동하지 않을 수 있습니다. 이럴 경우 한번 잠자기를 실행했다가 켜시면 정상 작동 합니다.
 
 ## Changelog
+
+December 27, 2019
+- whatnameisit님의 repository의 패치 일부를 병합하였습니다.
+- SMBIOS를 MacBookPro15,4로 설정하고 NoTouchID.kext를 추가했습니다.
+- CPUFriendDataProvider.kext를 BPOWER-CPUFriendDataProvider.kext로 대체하였습니다.
 
 December 22, 2019
 - 클로버 부트로더를 r5101로 업데이트 하였습니다.
@@ -117,7 +114,7 @@ September 23, 2019
 
 [whatnameisit](https://github.com/whatnameisit) for Asus Vivobook repository
 
-the VoodooI2C helpdesk for working touchpad
+The VoodooI2C helpdesk for working touchpad
 
 headkaze for Hackintool
 
@@ -126,6 +123,10 @@ headkaze for Hackintool
 CrazyBird for HFS+ partitioning in 10.14+
 
 daliansky and williambj1 for many hotpatch methods
+
+LeeBinder for many helps
+
+fewtarius for new CPUFriendDataProvider kext and SMBIOS
 
 ## [x86.co.kr](https://x86.co.kr)
 이 한국 커뮤니티에 방문하시면 기타 정보를 얻으실 수 있습니다.

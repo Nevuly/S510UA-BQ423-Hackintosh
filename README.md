@@ -35,19 +35,18 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 
 ## Steps to install
 
-1. Prepair a macOS installer in USB. (Use creationmedia method or MBR HFS Firmware Check Patch available in [here](https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/) for both Mojave and Catalina.)
+1. Prepair a macOS installer in USB. (Use creationmedia method or MBR HFS Firmware Check Patch available in [here](https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/) for Catalina.)
 2. Replace EFI folder in USB EFI partition with the EFI folder in Clover EFI.
 3. Boot into USB and select MacOs installer.
 4. During the installation, touchpad may not work. You need a mouse connected through USB. (Or you may delete the IOGraphicsFamily dependency from VoodooI2CHID.kext/info.plist.) Follow installation instructions found on tonymacx86 or other hackintosh forums.
     - If you have chosen to install Catalina in HFS+ file system, follow the directions given in [here](https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/)
 5. After a successful installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension
-6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") to rebuild kext then reboot.
+6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E* && sudo chown -R 0:0 /L*/E* && sudo kextcache -i /") to rebuild kext then reboot.
     - If you have installed Catalina, use [Hackintool](https://headsoft.com.au/download/mac/Hackintool.zip) to disable Gate Keeper beforehand.
 7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition.
 8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL
 - Note: You may want to complete these extra steps.
     - You have DW1560 installed -- Replace WiFi/Bluetooth card
-    - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
     - You have not replaced the WiFi & BT module with DW1560 but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan's Null Ethernet
     - You have Sleep and Airplane fn keys -- Activate Sleep and Airplane fn keys
 
@@ -58,14 +57,6 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 3. Go to /kexts/other/additional and copy AirportBrcmFixup and the three Brcm kexts (Repo, Injector, RAM2) to /L*/E* and rebuild cache.
 4. Optional: Copy /kexts/other/additional/LiluFriend.kext (recommended to create your own) to /L*/E* and rebuild cache.
 5. Reboot.
-
-## Set Bluetooth port as internal
-
-1. Make sure USB injection kexts or SSDT-UIA.aml are not loaded.
-2. Download [Hackintool](https://headsoft.com.au/download/mac/Hackintool.zip) by headkaze.
-3. Under the USB tab, identify the Bluetooth port and set it as internal. The UVC camera can also be set as internal. Export and obtain the codeless injection kext and SSDTs in ~/Desktop. And Delete the SSDTS.
-4. Install the USBPorts.kext in /L*/E*. (Refer to [here](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) for more information.)
-5. Rebuild cache and reboot.
 
 ## Install RehabMan's Null Ethernet
 
@@ -84,12 +75,18 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 ## When you think you are done
  
 1. Update Clover, kexts, and efi files.
-2. Backup your /L*/E* by copying them to the system EFI partition and/or installation USB EFI partition
+2. Backup your /L*/E* by copying them to the system EFI partition and/or installation USB EFI partition.
 
 ## Other things
-1. If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo
+1. If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
+2. Bluetooth may not work after loading kexts. In this case, please run hibernation mode and turn it on again.
 
 ## Changelog
+
+December 27, 2019
+- Some patches merged from whatnameisit's repository.
+- Changed SMBIOS to MacBookPro15,4 and added NoTouchID.kext.
+- Switched CPUFriendDataProvider.kext to BPOWER-CPUFriendDataProvider.kext.
 
 December 22, 2019
 - Update clover bootloader to r5101.
@@ -117,7 +114,7 @@ September 23, 2019
 
 [whatnameisit](https://github.com/whatnameisit) for Asus Vivobook repository
 
-the VoodooI2C helpdesk for working touchpad
+The VoodooI2C helpdesk for working touchpad
 
 headkaze for Hackintool
 
@@ -126,6 +123,10 @@ headkaze for Hackintool
 CrazyBird for HFS+ partitioning in 10.14+
 
 daliansky and williambj1 for many hotpatch methods
+
+LeeBinder for many helps
+
+fewtarius for new CPUFriendDataProvider kext and SMBIOS
 
 ## For Koreans
 [README-kr](README-kr.md)를 참고하십시오.
