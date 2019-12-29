@@ -47,6 +47,7 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL
 - Note: You may want to complete these extra steps.
     - You have DW1560 installed -- Replace WiFi/Bluetooth card
+    - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
     - You have not replaced the WiFi & BT module with DW1560 but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan's Null Ethernet
     - You have Sleep and Airplane fn keys -- Activate Sleep and Airplane fn keys
 
@@ -57,6 +58,14 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 3. Go to /kexts/other/additional and copy AirportBrcmFixup and the three Brcm kexts (Repo, Injector, RAM2) to /L*/E* and rebuild cache.
 4. Optional: Copy /kexts/other/additional/LiluFriend.kext (recommended to create your own) to /L*/E* and rebuild cache.
 5. Reboot.
+
+## Set Bluetooth port as internal
+
+1. Make sure USB injection kexts or SSDT-UIA.aml are not loaded.
+2. Download [Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip) by headkaze.
+3. Under the USB tab, identify the Bluetooth port and set it as internal. The UVC camera can also be set as internal. Export and obtain the codeless injection kext and SSDTs in ~/Desktop. Delete the SSDTs.
+4. Install the USBPorts.kext in /L*/E* (Refer to [here](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) for more information.).
+5. Rebuild cache and reboot.
 
 ## Install RehabMan's Null Ethernet
 
@@ -82,6 +91,13 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 2. Bluetooth may not work after loading kexts. In this case, please run hibernation mode and turn it on again.
 
 ## Changelog
+
+December 30, 2019
+- Removed boot sound.
+- Fixed issue of C-States disabled when enabled of HWP.
+- Added enable Alcor USB 2.0 Card Reader patch.
+- Cause of issue in AppleALC, rollbacked AppleALC to 1.4.2 and added CodecCommander and CC DSDT to fix HDMI audio.
+- Added USBPorts.kext and added patch menu of USB Port.
 
 December 27, 2019
 - Some patches merged from whatnameisit's repository.

@@ -47,6 +47,7 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro15,4의 SMBIOS 내용을 생성하십시오.
 - Note: 경우에 따라서 별도의 패치가 필요할 수 있습니다.
     - DW1560를 설치한 경우 -- Replace WiFi/Bluetooth Card
+    - DW1560설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
     - WiFi & BT 모듈을 DW1560로 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan's Null Ethernet
     - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Activate Sleep and Airplane fn keys
 
@@ -57,6 +58,14 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 3. /kexts/other/additional에 있는 AirportBrcmFixup과 세 개의 Brcm kext들 (Repo, Injector, RAM3) 을 /L*/E*로 복사하고 캐시를 재생성하십시오.
 4. 권장사항: /kexts/other/additional/LiluFriend.kext를 (새롭게 LiluFriend를 생성하는 것이 안정적입니다.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
 5. 재부팅합니다.
+
+## Set Bluetooth port as internal
+
+1. /L*/E*의 3rd party USB 관련 켁스트나 SSDT-UIA.aml가 로드되지 않은 것을 확인하십시오.
+2. headkaze의 [Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip)를 다운로드 하십시오.
+3. USB 탭에서 블루투스 포트를 확인하고 internal로 설정하십시오. UVC 카메라 또한 internal로 설정할 수 있습니다. Export/내보내기 버튼으로 codeless injection kext과 SSDT들을 데스크톱에 생성하고, 생성된 SSDT들은 삭제하십시오.
+4. USBPorts.kext를 /L*/E*에 설치하십시오. (자세한 내용은 [여기](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/)에서 확인하실 수 있습니다.)
+5. 캐시를 재생성하고 재부팅합니다.
 
 ## Install RehabMan's Null Ethernet
 
@@ -82,6 +91,13 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 2. 켁스트를 로드하고 나서 블루투스가 작동하지 않을 수 있습니다. 이럴 경우 한번 잠자기를 실행했다가 켜시면 정상 작동 합니다.
 
 ## Changelog
+
+December 30, 2019
+- 부트 사운드를 제거하였습니다.
+- HWP 적용 후 C-States가 비활성화되는 문제를 수정하였습니다.
+- Alcor USB 2.0 Card Reader 활성화 패치를 추가하였습니다.
+- AppleALC 문제로 인해 1.4.2로 롤백 및 CodecCommander와 CC DSDT를 추가하여 HDMI 오디오 오류를 수정하였습니다.
+- USBPorts.kext 추가 및 USB Port 패치 메뉴 추가하였습니다.
 
 December 27, 2019
 - whatnameisit님의 repository의 패치 일부를 병합하였습니다.
