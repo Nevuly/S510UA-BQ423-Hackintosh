@@ -426,7 +426,7 @@
 		<key>KernelLapic</key>
 		<true/>
 		<key>KernelPm</key>
-		<true/>
+		<false/>
 		<key>KernelToPatch</key>
 		<array>
 			<dict>
