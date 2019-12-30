@@ -92,6 +92,10 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 
 ## Changelog
 
+December 31, 2019
+- 기존의 Alcor USB 2.0 Card Reader 패치를 제거하고, AlcorSDCardReader.kext를 추가하였습니다.
+  Thanks to [whatnameisit](https://github.com/whatnameisit)
+
 December 30, 2019
 - 부트 사운드를 제거하였습니다.
 - HWP 적용 후 C-States가 비활성화되는 문제를 수정하였습니다.

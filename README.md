@@ -92,6 +92,10 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 
 ## Changelog
 
+December 31, 2019
+- Removed previously Alcor USB 2.0 Card Reader patch, Added AlcorSDCardReader.kext.
+  Thanks to [whatnameisit](https://github.com/whatnameisit)
+
 December 30, 2019
 - Removed boot sound.
 - Fixed issue of C-States disabled when enabled of HWP.

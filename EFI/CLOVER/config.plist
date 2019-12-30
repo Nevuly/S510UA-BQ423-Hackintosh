@@ -441,22 +441,7 @@
 			</dict>
 		</array>
 		<key>KextsToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>Card Reader: Alcor USB 2.0 Card Reader Device ID Patch by Nevuly</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>Y2I=</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.USBStorageDeviceSpecifics</string>
-				<key>Replace</key>
-				<data>Y2Y=</data>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 	<key>RtVariables</key>
 	<dict>
