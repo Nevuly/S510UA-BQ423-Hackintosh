@@ -93,8 +93,8 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 ## Changelog
 
 December 31, 2019
-- Removed previously Alcor USB 2.0 Card Reader patch, Added AlcorSDCardReader.kext.
-  Thanks to [whatnameisit](https://github.com/whatnameisit)
+- Removed previously Alcor USB 2.0 Card Reader patch, Added AlcorSDCardReader.kext. Thanks to [whatnameisit](https://github.com/whatnameisit)
+- Update clover bootloader version to 5102.
 
 December 30, 2019
 - Removed boot sound.

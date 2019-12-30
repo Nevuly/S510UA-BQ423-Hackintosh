@@ -93,8 +93,8 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 ## Changelog
 
 December 31, 2019
-- 기존의 Alcor USB 2.0 Card Reader 패치를 제거하고, AlcorSDCardReader.kext를 추가하였습니다.
-  Thanks to [whatnameisit](https://github.com/whatnameisit)
+- 기존의 Alcor USB 2.0 Card Reader 패치를 제거하고, AlcorSDCardReader.kext를 추가하였습니다. Thanks to [whatnameisit](https://github.com/whatnameisit)
+- 클로버 부트로더 버전을 5102로 업데이트 하였습니다.
 
 December 30, 2019
 - 부트 사운드를 제거하였습니다.
