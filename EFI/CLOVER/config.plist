@@ -289,7 +289,7 @@
 		<key>C6</key>
 		<false/>
 		<key>HWPEnable</key>
-		<false/>
+		<true/>
 		<key>UseARTFrequency</key>
 		<false/>
 	</dict>
@@ -362,7 +362,7 @@
 			<key>FixOwnership</key>
 			<true/>
 			<key>HighCurrent</key>
-			<false/>
+			<true/>
 			<key>Inject</key>
 			<true/>
 		</dict>
