@@ -36,15 +36,16 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 ## Steps to install
 
 1. Prepair a macOS installer in USB. (Use creationmedia method or MBR HFS Firmware Check Patch available in [here](https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/) for Catalina.)
-2. Replace EFI folder in USB EFI partition with the EFI folder in Clover EFI.
+2. Replace EFI folder in USB EFI partition with the EFI folder.
 3. Boot into USB and select MacOs installer.
 4. During the installation, touchpad may not work. You need a mouse connected through USB. (Or you may delete the IOGraphicsFamily dependency from VoodooI2CHID.kext/info.plist.) Follow installation instructions found on tonymacx86 or other hackintosh forums.
     - If you have chosen to install Catalina in HFS+ file system, follow the directions given in [here](https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/)
-5. After a successful installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension
+5. After a successful installation, boot into macOS, copy /kexts/Other/CodecCommnader.kext -> /Library/Extension
 6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E* && sudo chown -R 0:0 /L*/E* && sudo kextcache -i /") to rebuild kext then reboot.
     - If you have installed Catalina, use [Hackintool](https://headsoft.com.au/download/mac/Hackintool.zip) to disable Gate Keeper beforehand.
-7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition.
-8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL
+7. After Reboot your MacOS, mount EFI partition (sudo diskutil mount EFI) and copy EFI folder to the system EFI partition and reboot your system again. After reboot, the touchpad and sound input will be work correctly.
+    -  If you copy EFI folder, please remove kexts/Other/CodecCommander.kext
+8. Mount EFI Partition again, use Clover Configurator to change SMBIOS, generate your serial and MBL
 - Note: You may want to complete these extra steps.
     - You have DW1560 installed -- Replace WiFi/Bluetooth card
     - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
@@ -78,6 +79,8 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 
 1. Follow the simple directions given in [here](https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction).
     - Download [Release of AsusSMC](https://github.com/hieplpvip/AsusSMC/releases).
+    - Open [AsusSMC Install Fix](https://raw.githubusercontent.com/Nevuly/S510UA-BQ423-Hackintosh/master/asussmc-fix-install_daemon.sh) in your browser.
+    - Open install_daemon.sh to text editor, remove all of contents, and replace contents in AsusSMC Install Fix contents and save it.
     - Run install_daemon.sh by dragging it onto terminal.
     - Reboot if the script does not seem to work. After updating your EFI folder or any kexts, you may need to run the script again.
 
@@ -87,14 +90,21 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 2. Backup your /L*/E* by copying them to the system EFI partition and/or installation USB EFI partition.
 
 ## Other things
-1. If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
+1. Cause of issue in AsusSMCDaemon, loading all kexts except CodecCommnader from Clover Bootloader. In which case use BrcmFirmwareData for bluetooth stablize.
 2. Bluetooth may not work after loading kexts. In this case, please run hibernation mode and turn it on again.
 
 ## Changelog
 
+January 17, 2020
+- Changed clover bootloader theme to clover-theme-minimal-dark.
+- Enabled HWPEnable option and HighCurrent option.
+- Updated clover bootloader version to 5103.
+- Added AsusSMCDaemon install fix script.
+- Update kexts.
+
 December 31, 2019
 - Removed previously Alcor USB 2.0 Card Reader patch, Added AlcorSDCardReader.kext. Thanks to [whatnameisit](https://github.com/whatnameisit)
-- Update clover bootloader version to 5102.
+- Updated clover bootloader version to 5102.
 
 December 30, 2019
 - Removed boot sound.
