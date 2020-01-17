@@ -36,15 +36,16 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 ## Steps to install
 
 1. macOS 인스톨러 USB를 준비합니다. (creationmedia 방법이나 Catalina를 HFS+ 파일시스템에 설치하고 싶다면 [MBR HFS Firmware Check Patch](https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/)를 사용하십시오.) 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [x86.co.kr](https://x86.co.kr)에서 고스트를 받아 설치하시면 편리합니다.
-2. USB의 EFI 파티션에 Clover EFI의 하위폴더 EFI를 붙여넣으십시오.
+2. USB의 EFI 파티션에 EFI 폴더를 붙여넣으십시오.
 3. USB로 부팅해서 macOS Installer를 선택하십시오.
 4. 설치중에는 터치패드가 작동하지 않을 수 있습니다. 이 경우 별도의 마우스가 필요합니다. (또는 VoodooI2CHID.kext의 info.plist에서 IOGraphicsFamily에 대한 dependency를 삭제하십시오.) tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [x86.co.kr](https://x86.co.kr)를 이용하십시오.
     - 만약 카탈리나를 HFS+ 파일시스템으로 설치하신다면 [이곳](https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/)의 설치방법을 참고하십시오.
-5. 설치가 완료된 후에 macOS로 부팅해서 /kexts/Other의 켁스트를 -> /Library/Extension로 붙여넣으십시오.
+5. 설치가 완료된 후에 macOS로 부팅해서 kexts/Other/CodecCommnader 켁스트를 -> /Library/Extension로 붙여넣으십시오.
 6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E* && sudo chown -R 0:0 /L*/E* && sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
     - 카탈리나를 설치했다면 [Hackintool](https://headsoft.com.au/download/mac/Hackintool.zip)로 먼저 Gate Keeper를 비활성화 시킨 후 진행하십시오.
-7. 터치패드와 소리가 (마이크) 정상 작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
-8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro15,4의 SMBIOS 내용을 생성하십시오.
+7. 재부팅 후 디스크의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) EFI 폴더를 디스크의 EFI 파티션으로 붙여넣고 재부팅 하면 마이크와 터치패드가 작동합니다.
+    - EFI 폴더 전체를 복사할 때 kexts/Other/CodecCommander.kext는 지우시기 바랍니다.
+8. EFI 폴더를 다시 마운트 한 뒤 Clover Configurator를 이용해서 MacBookPro15,4의 SMBIOS 내용을 생성하십시오.
 - Note: 경우에 따라서 별도의 패치가 필요할 수 있습니다.
     - DW1560를 설치한 경우 -- Replace WiFi/Bluetooth Card
     - DW1560설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
@@ -78,6 +79,8 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 
 1. 자세한 내용은 [여기](https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction)를 참고하십시오.
     - [AsusSMC Release](https://github.com/hieplpvip/AsusSMC/releases)를 다운로드합니다.
+    - 브라우저를 사용하여[AsusSMC Install Fix](https://raw.githubusercontent.com/Nevuly/S510UA-BQ423-Hackintosh/master/asussmc-fix-install_daemon.sh)를 엽니다.
+    - install_daemon.sh를 열어 모든 내용을 지우고, AsusSMC Install Fix의 내용으로 붙여넣기 하여 저장합니다.
     - install_daemon.sh를 터미널로 드래그해서 실행시키십시오.
     - 곧바로 작동하지 않는다면 재부팅하십시오. 켁스트와 efi 드라이버, OS, 클로버 등을 업데이트 할 때 새로 실행해야 할 수 있습니다.
 
@@ -87,10 +90,17 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 2. /L*/E*의 내용을 SSD의 EFI 파티션과 설치 USB EFI 파티션에 복사하십시오.
 
 ## Other things
-1. 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
+1. AsusSMCDaemon관련 문제로 인해 CodecCommander를 제외한 나머지 모든 kext들은 전부 Clover 부트로더에서 로드합니다. 이때 BrcmFirmwareData를 사용해야 블루투스가 안정적으로 동작합니다.
 2. 켁스트를 로드하고 나서 블루투스가 작동하지 않을 수 있습니다. 이럴 경우 한번 잠자기를 실행했다가 켜시면 정상 작동 합니다.
 
 ## Changelog
+
+January 17, 2020
+- 클로버 부트로더 테마를 clover-theme-minimal-dark로 변경하였습니다.
+- HWPEnable 옵션과 HighCurrent옵션을 활성화 하였습니다.
+- 클로버 부트로더 버전을 5103으로 업데이트 하였습니다.
+- AsusSMCDaemon 설치 픽스 스크립트를 추가하였습니다.
+- Kext를 최신버전으로 업데이트 하였습니다.
 
 December 31, 2019
 - 기존의 Alcor USB 2.0 Card Reader 패치를 제거하고, AlcorSDCardReader.kext를 추가하였습니다. Thanks to [whatnameisit](https://github.com/whatnameisit)
