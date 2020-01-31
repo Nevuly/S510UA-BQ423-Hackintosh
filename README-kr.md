@@ -79,8 +79,6 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 
 1. 자세한 내용은 [여기](https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction)를 참고하십시오.
     - [AsusSMC Release](https://github.com/hieplpvip/AsusSMC/releases)를 다운로드합니다.
-    - 브라우저를 사용하여[AsusSMC Install Fix](https://raw.githubusercontent.com/Nevuly/S510UA-BQ423-Hackintosh/master/asussmc-fix-install_daemon.sh)를 엽니다.
-    - install_daemon.sh를 열어 모든 내용을 지우고, AsusSMC Install Fix의 내용으로 붙여넣기 하여 저장합니다.
     - install_daemon.sh를 터미널로 드래그해서 실행시키십시오.
     - 곧바로 작동하지 않는다면 재부팅하십시오. 켁스트와 efi 드라이버, OS, 클로버 등을 업데이트 할 때 새로 실행해야 할 수 있습니다.
 
@@ -94,6 +92,11 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 2. 켁스트를 로드하고 나서 블루투스가 작동하지 않을 수 있습니다. 이럴 경우 한번 잠자기를 실행했다가 켜시면 정상 작동 합니다.
 
 ## Changelog
+
+January 31, 2020
+- Kext를 최신버전으로 업데이트 하였습니다.
+- NoTouchID.kext와 SMC 센서 켁스트를 추가하였습니다.
+- KernelLapic 옵션을 비활성화 하였습니다.
 
 January 17, 2020
 - 클로버 부트로더 테마를 clover-theme-minimal-dark로 변경하였습니다.

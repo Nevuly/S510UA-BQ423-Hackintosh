@@ -79,8 +79,6 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 
 1. Follow the simple directions given in [here](https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction).
     - Download [Release of AsusSMC](https://github.com/hieplpvip/AsusSMC/releases).
-    - Open [AsusSMC Install Fix](https://raw.githubusercontent.com/Nevuly/S510UA-BQ423-Hackintosh/master/asussmc-fix-install_daemon.sh) in your browser.
-    - Open install_daemon.sh to text editor, remove all of contents, and replace contents in AsusSMC Install Fix contents and save it.
     - Run install_daemon.sh by dragging it onto terminal.
     - Reboot if the script does not seem to work. After updating your EFI folder or any kexts, you may need to run the script again.
 
@@ -94,6 +92,11 @@ Tested on 10.15.x Catalina (Clover Bootloader)
 2. Bluetooth may not work after loading kexts. In this case, please run hibernation mode and turn it on again.
 
 ## Changelog
+
+January 31, 2020
+- Update kexts.
+- Added NoTouchID.kext and SMC sensor kexts.
+- Disabled KernelLapic option.
 
 January 17, 2020
 - Changed clover bootloader theme to clover-theme-minimal-dark.
