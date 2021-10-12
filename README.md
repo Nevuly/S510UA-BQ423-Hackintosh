@@ -60,49 +60,52 @@ Tested on 10.16.x Big Sur (OpenCore Bootloader)
 
 ## Changelog
 
-October 12, 2021
+October 12, 2021 (Rev.8.1 | Emergency Update)
+- Remove HibernationFixup kext and configs. More information, See [this](https://github.com/hieplpvip/AsusSMC/issues/103).
+
+October 12, 2021 (Rev.8 | Planned Update)
 - Update to use OpenCore Bootloader.
 - Support macOS Big Sur.
 
-January 31, 2020
+January 31, 2020 (Rev.7 | Planned Update)
 - Update kexts.
 - Added NoTouchID.kext and SMC sensor kexts.
 - Disabled KernelLapic option.
 
-January 17, 2020
+January 17, 2020 (Rev.6 | Planned Update)
 - Changed clover bootloader theme to clover-theme-minimal-dark.
 - Enabled HWPEnable option and HighCurrent option.
 - Updated clover bootloader version to 5103.
 - Added AsusSMCDaemon install fix script.
 - Update kexts.
 
-December 31, 2019
+December 31, 2019 (Rev.5.1 | Emergency Update)
 - Removed previously Alcor USB 2.0 Card Reader patch, Added AlcorSDCardReader.kext. Thanks to [whatnameisit](https://github.com/whatnameisit)
 - Updated clover bootloader version to 5102.
 
-December 30, 2019
+December 30, 2019 (Rev.5 | Planned Update)
 - Removed boot sound.
 - Fixed issue of C-States disabled when enabled of HWP.
 - Added enable Alcor USB 2.0 Card Reader patch.
 - Cause of issue in AppleALC, rollbacked AppleALC to 1.4.2 and added CodecCommander and CC DSDT to fix HDMI audio.
 - Added USBPorts.kext and added patch menu of USB Port.
 
-December 27, 2019
+December 27, 2019 (Rev.4 | Planned Update)
 - Some patches merged from whatnameisit's repository.
 - Changed SMBIOS to MacBookPro15,4 and added NoTouchID.kext.
 - Switched CPUFriendDataProvider.kext to BPOWER-CPUFriendDataProvider.kext.
 
-December 22, 2019
+December 22, 2019 (Rev.3 | Planned Update)
 - Update clover bootloader to r5101.
 - Remake of all of codes.
 
-October 21, 2019
+October 21, 2019 (Rev.2 | Planned Update)
 - Update clover bootloader to r5097.
 - Update all of files to support Catalina. (Dropped to support Mojave.)
 - Make S510UA-BQ423's DSDT.
 - Some patches merged from whatnameisit's repository.
 
-September 23, 2019
+September 23, 2019 (Rev.1 | Release)
 - Bringup this repository from whatnameisit, and modified for S510UA-BQ423.
 - Add USB 2.0 Card Reader guide.
 - Delete PS2 Patch guide.

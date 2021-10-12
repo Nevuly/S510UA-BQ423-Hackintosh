@@ -60,49 +60,52 @@ Tested on 10.16.x Big Sur (OpenCore Bootloader)
 
 ## Changelog
 
-October 12, 2021
+October 12, 2021 (Rev.8.1 | 긴급 업데이트)
+- HibernationFixup Kext 및 관련 옵션을 삭제했습니다. 자세한 내용은 [여기](https://github.com/hieplpvip/AsusSMC/issues/103)를 확인하세요.
+
+October 12, 2021 (Rev.8 | 정규 업데이트)
 - OpenCore 부트로더로 업데이트 하였습니다.
 - macOS Big Sur를 지원합니다.
 
-January 31, 2020
+January 31, 2020 (Rev.7 | 정규 업데이트)
 - Kext를 최신버전으로 업데이트 하였습니다.
 - NoTouchID.kext와 SMC 센서 켁스트를 추가하였습니다.
 - KernelLapic 옵션을 비활성화 하였습니다.
 
-January 17, 2020
+January 17, 2020 (Rev.6 | 정규 업데이트)
 - 클로버 부트로더 테마를 clover-theme-minimal-dark로 변경하였습니다.
 - HWPEnable 옵션과 HighCurrent옵션을 활성화 하였습니다.
 - 클로버 부트로더 버전을 5103으로 업데이트 하였습니다.
 - AsusSMCDaemon 설치 픽스 스크립트를 추가하였습니다.
 - Kext를 최신버전으로 업데이트 하였습니다.
 
-December 31, 2019
+December 31, 2019 (Rev.5.1 | 긴급 업데이트)
 - 기존의 Alcor USB 2.0 Card Reader 패치를 제거하고, AlcorSDCardReader.kext를 추가하였습니다. Thanks to [whatnameisit](https://github.com/whatnameisit)
 - 클로버 부트로더 버전을 5102로 업데이트 하였습니다.
 
-December 30, 2019
+December 30, 2019 (Rev.5 | 정규 업데이트)
 - 부트 사운드를 제거하였습니다.
 - HWP 적용 후 C-States가 비활성화되는 문제를 수정하였습니다.
 - Alcor USB 2.0 Card Reader 활성화 패치를 추가하였습니다.
 - AppleALC 문제로 인해 1.4.2로 롤백 및 CodecCommander와 CC DSDT를 추가하여 HDMI 오디오 오류를 수정하였습니다.
 - USBPorts.kext 추가 및 USB Port 패치 메뉴 추가하였습니다.
 
-December 27, 2019
+December 27, 2019 (Rev.4 | 정규 업데이트)
 - whatnameisit님의 repository의 패치 일부를 병합하였습니다.
 - SMBIOS를 MacBookPro15,4로 설정하고 NoTouchID.kext를 추가했습니다.
 - CPUFriendDataProvider.kext를 BPOWER-CPUFriendDataProvider.kext로 대체하였습니다.
 
-December 22, 2019
+December 22, 2019 (Rev.3 | 정규 업데이트)
 - 클로버 부트로더를 r5101로 업데이트 하였습니다.
 - 모든 코드를 재작업 하였습니다.
 
-October 21, 2019
+October 21, 2019 (Rev.2 | 정규 업데이트)
 - 클로버 부트로더를 r5097로 업데이트 하였습니다.
 - 모든 파일을 카탈리나에 맞춰 업데이트 하였습니다. (모하비 지원을 종료하였습니다.)
 - S510UA-BQ423용 DSDT를 생성하였습니다.
 - whatnameisit님의 repository의 패치 일부를 병합하였습니다.
 
-September 23, 2019
+September 23, 2019 (Rev.1 | 릴리즈)
 - whatnameisit님 repository를 가져와 S510UA-BQ423에 맞게 수정 하였습니다.
 - USB 2.0 Card Reader 관련 메뉴얼을 추가하였습니다.
 - PS2 관련 메뉴얼을 삭제하였습니다.
