@@ -1,6 +1,6 @@
 # Asus Vivobook S510UA-BQ423
 
-Tested on 10.16.x Big Sur (OpenCore Bootloader)
+Tested on 10.17.x Monterey & 10.16.x Big Sur (OpenCore Bootloader)
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
