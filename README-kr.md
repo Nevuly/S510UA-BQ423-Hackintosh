@@ -60,6 +60,11 @@ Tested on 10.17.x Monterey & 10.16.x Big Sur (OpenCore Bootloader)
 
 ## Changelog
 
+November 04, 2021 (Rev.9 | 정규 업데이트)
+- OpenCore 부트로더를 업데이트 하였습니다.
+- Kext를 최신버전으로 업데이트 하였습니다.
+- macOS Monterey를 지원합니다.
+
 October 12, 2021 (Rev.8.1 | 긴급 업데이트)
 - HibernationFixup Kext 및 관련 옵션을 삭제했습니다. 자세한 내용은 [여기](https://github.com/hieplpvip/AsusSMC/issues/103)를 확인하세요.
 

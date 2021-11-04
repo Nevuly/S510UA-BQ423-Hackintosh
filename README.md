@@ -60,6 +60,11 @@ Tested on 10.17.x Monterey & 10.16.x Big Sur (OpenCore Bootloader)
 
 ## Changelog
 
+November 04, 2021 (Rev.9 | Planned Update)
+- Update OpenCore bootloader.
+- Update Kexts.
+- Support macOS Monterey.
+
 October 12, 2021 (Rev.8.1 | Emergency Update)
 - Remove HibernationFixup kext and configs. More information, See [this](https://github.com/hieplpvip/AsusSMC/issues/103).
 
