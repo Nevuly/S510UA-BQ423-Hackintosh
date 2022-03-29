@@ -4,6 +4,10 @@ Tested on 10.17.x Monterey & 10.16.x Big Sur (OpenCore Bootloader)
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
+## Attention
+
+This repository now archived. I don't maintain this device anymore.
+
 ## System specification
 
 | Item | Details |
@@ -59,6 +63,10 @@ Tested on 10.17.x Monterey & 10.16.x Big Sur (OpenCore Bootloader)
 1. Check periodically OpenCore configuration official document and Dortania guide document.
 
 ## Changelog
+
+March 29, 2022 (Rev.10 | Final Update)
+- Update OpenCore bootloader.
+- Update Kexts.
 
 November 04, 2021 (Rev.9 | Planned Update)
 - Update OpenCore bootloader.

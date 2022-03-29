@@ -4,6 +4,10 @@ Tested on 10.17.x Monterey & 10.16.x Big Sur (OpenCore Bootloader)
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
+## Attention!
+
+이 레포지토리는 아카이브화 되었습니다. 더이상 해당 디바이스를 관리하지 않습니다.
+
 ## 시스템 사양정보
 
 | Item | Details |
@@ -59,6 +63,10 @@ Tested on 10.17.x Monterey & 10.16.x Big Sur (OpenCore Bootloader)
 1. OpenCore 설정 공식 문서 및 Dortania 가이드를 주기적으로 확인하십시오.
 
 ## Changelog
+
+March 29, 2022 (Rev.10 | 최종 업데이트)
+- OpenCore 부트로더를 업데이트 하였습니다.
+- Kext를 최신버전으로 업데이트 하였습니다.
 
 November 04, 2021 (Rev.9 | 정규 업데이트)
 - OpenCore 부트로더를 업데이트 하였습니다.
